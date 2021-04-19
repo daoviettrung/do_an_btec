@@ -165,6 +165,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('view', [\App\Http\Controllers\Admin\ReportController::class, 'viewReport']);
         Route::get('view-post/{id}', [\App\Http\Controllers\Admin\ReportController::class, 'viewPost']);
         Route::post('filter',[\App\Http\Controllers\Admin\ReportController::class,'getFilter']);
+        Route::post('delete/{id}',[\App\Http\Controllers\Admin\ReportController::class,'delete']);
+        Route::post('view-story-user/{id}',[\App\Http\Controllers\Admin\ReportController::class,'viewStoryUser']);
+        Route::post('delete-all-report/{id}',[\App\Http\Controllers\Admin\ReportController::class,'deleteAllReport']);
 
     });
     Route::prefix('/account')->group(function () {
@@ -174,6 +177,7 @@ Route::prefix('admin')->middleware('admin')->group(function () {
         Route::get('/forgot-password', [\App\Http\Controllers\Admin\AccountControllers::class, 'getForgotPassword']);
         Route::post('/change-password', [\App\Http\Controllers\Admin\AccountControllers::class, 'postChangePassword']);
     });
+
 
 });
 

@@ -189,8 +189,8 @@
                                                     <tbody>
                                                     @foreach($post as $p)
                                                         <tr>
-                                                            <td>{{$p->author->name}}</td>
-                                                            <td>{{$p->category->name}}</td>
+                                                            <td>{{$p->author->name ?? ' '}}</td>
+                                                            <td>{{$p->category->name?? ' '}}</td>
                                                             <td>{{$p->title}}</td>
                                                             <td>
                                                                 <a href="admin/manage-post/view-post/{{$p->id}}">
@@ -253,7 +253,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         function getCategory() {
             var topic_id = $("#topic_id").val();
             $.ajax({
